@@ -1,0 +1,8 @@
+.back{
+    background-image:url("https://demo.evisionthemes.com/emag-pro/wp-content/uploads/2016/11/people-2942836_1280.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
