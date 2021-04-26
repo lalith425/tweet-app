@@ -33,6 +33,7 @@ export class UserMenuComponent implements OnInit {
 
   ngOnInit() {
     this.tweetService.getAllTweets().subscribe((data)=>{
+      console.log(data);
       this.tweetList = data;
       this.filteredtweetList = this.tweetList;
     });

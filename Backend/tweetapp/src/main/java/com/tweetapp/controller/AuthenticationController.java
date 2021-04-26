@@ -1,8 +1,5 @@
 package com.tweetapp.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.tweetapp.model.AuthenticateRequest;
 import com.tweetapp.model.AuthenticateResponse;
 import com.tweetapp.service.MyUserDetailsService;
@@ -39,7 +36,7 @@ public class AuthenticationController {
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public AuthenticateResponse getUserById(@RequestBody AuthenticateRequest aReq) throws Exception {
         try {
-
+         log.info("Authentication Strated");
             authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(aReq.getLoginId(), aReq.getPassword()));
         } catch (BadCredentialsException e) {

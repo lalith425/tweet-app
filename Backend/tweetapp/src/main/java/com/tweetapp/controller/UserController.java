@@ -29,8 +29,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/tweetapp")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -48,6 +51,7 @@ public class UserController {
     @PostMapping("/signup")
     public Boolean signUpUser(@RequestBody Users user) throws UserAlreadyExistException {
         try {
+            log.info("add a user");
             userService.signUpUser(user);
         } catch (UserAlreadyExistException e) {
             return false;
@@ -57,6 +61,7 @@ public class UserController {
 
     @GetMapping("/user/all")
     public List<Users> getAllUsers() {
+        log.info("get all user");
         System.out.println("LLLLLLLLLL ");
         List<Users> userList = userService.getAllUsers();
         return userList;
@@ -64,12 +69,14 @@ public class UserController {
 
     @GetMapping("/user/{userName}")
     public List<Users> getUserById(@PathVariable("userName") String userName) {
+        log.info("get user");
         return userService.getUserById(userName);
     }
 
     @PutMapping("/user/forgetpassword")
     public ResponseEntity<?> getUserById(@RequestBody AuthenticateRequest aReq) throws Exception {
         try {
+            log.info("changing password");
             userService.forgetPassword(aReq);
         } catch (UsernameNotFoundException e) {
             throw e;
