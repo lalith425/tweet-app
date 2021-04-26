@@ -6,4 +6,6 @@ export interface Tweet{
      tweetPost: string;
      likedUsers : Array<string>;
      commentsPosted: Array<Comments>;
+     createdDate: Date;
+     updatedDate: Date;
 }
