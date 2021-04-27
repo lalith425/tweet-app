@@ -1,25 +1,24 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>POST A TWEET</mat-card-title>
-    </mat-card-header>
+      <p class="align-right"><b>POST A TWEET</b></p>
     <mat-card-content>
 
         <div class = "ml-20 mr-5"> <mat-card-actions>
 
             <form>
                 <mat-form-field class="example-full-width">
-                    <input #post matInput type="text" name="post" placeholder="Enter a post">
+                    <input class="ml-10" #post matInput type="text" name="post" placeholder="Enter a post">
                   </mat-form-field>
                   &nbsp; &nbsp;
-                  <button class="my-class" mat-raised-button color="primary" type="button" (click)="posttweet(post.value)">POST
+                  <button class=mat-button style=
+                  "background-color: rgb(101, 220, 250); color:black" mat-raised-button color="primary" type="button" (click)="posttweet(post.value)"><b>POST</b>
                 </button>
-            </form>
-            
-      
-            <button class= mat-button style=
-                "background-color:rgb(159, 22, 172); color:white" (click) = "cancel()">
-                CANCEL
+                <button class= mat-button style=
+                "background-color:rgb(243, 93, 93); color:black" (click) = "cancel()">
+               <b>CANCEL</b> 
             </button>
+            </form>
+      
+           
           
         </mat-card-actions></div>
 

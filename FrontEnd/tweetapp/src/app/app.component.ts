@@ -10,13 +10,13 @@ import { AuthServiceServiceService } from './Service/auth-service-service.servic
 export class AppComponent implements OnInit{
   title = 'tweetapp';
 
-
   ngOnInit(): void {
     this.loggedIn();
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
   constructor(public authService:AuthServiceServiceService,public router: Router) {  
   }
+  
   loggedIn():boolean {
     if(this.authService.loggedIn){
       return true

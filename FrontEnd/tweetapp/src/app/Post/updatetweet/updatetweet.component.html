@@ -8,18 +8,21 @@
 
             <form [formGroup]= "updateForm">
                 <mat-form-field class="example-full-width">
-                    <input matInput type="text" class="form-control" formControlName= "updatetweet" name="updatetweet" placeholder="Update Tweet">
+                    <input matInput type="text" class="form-control" formControlName= "updatetweet" name="updatetweet">
                   </mat-form-field>
                   &nbsp; &nbsp;
-                  <button class="my-class" mat-raised-button color="primary" type="button" (click)="updateoldtweet()">POST
+                  <button class="my-class" mat-raised-button style=
+                  "background-color: rgb(101, 220, 250); color:black"
+                   type="button" (click)="updateoldtweet()"><b>POST</b>
                 </button>
+                <button class= mat-button style=
+                "background-color:rgb(243, 93, 93); color:black" (click) = "cancel()">
+                <b>CANCEL</b>
+            </button>
             </form>
             
       
-            <button class= mat-button style=
-                "background-color:rgb(159, 22, 172); color:white" (click) = "cancel()">
-                CANCEL
-            </button>
+            
           
         </mat-card-actions></div>
 
