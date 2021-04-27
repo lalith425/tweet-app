@@ -1,14 +1,18 @@
 package com.tweetapp.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +31,11 @@ public class Tweet {
     List<Comments> commentsPosted;
 
     @CreatedDate
-    Date createdDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    LocalDate createdDate;
 
     @LastModifiedDate
-    Date updatedDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    LocalDate updatedDate;
 
 }
