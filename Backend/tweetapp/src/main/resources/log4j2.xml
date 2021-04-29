@@ -3,7 +3,7 @@
     <Appenders>
         <Kafka name="Kafka" topic="tweet-app-logs">
             <JsonLayout/>
-            <Property name="bootstrap.servers">localhost:9092</Property>
+            <Property name="bootstrap.servers">${env:KAFKAHOST}:${env:KAFKAPORT}</Property>
         </Kafka>
         <Async name="Async">
             <AppenderRef ref="Kafka"/>

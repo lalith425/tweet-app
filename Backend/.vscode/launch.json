@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch TweetappApplication",
+            "request": "launch",
+            "mainClass": "com.tweetapp.TweetappApplication",
+            "projectName": "tweetapp",
+            "env": {
+                "MONGOHOST": "localhost",
+                "MONGOPORT": "27017",
+                "MONGODB": "tweetapp",
+                "KAFKAHOST":"localhost",
+                "KAFKAPORT": "9092",
+                "ELASTICSEARCHHOST": "localhost",
+                "ELASTICSEARCHPORT": "9200"
+            }
+        }
+    ]
+}
