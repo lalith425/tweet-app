@@ -42,6 +42,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
         http.cors().and().csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll()
                 .antMatchers("/tweetapp/signup").permitAll().antMatchers("/tweetapp/user/forgetpassword").permitAll()
+                .antMatchers("/actuator/*").permitAll().antMatchers("/swagger-ui/*").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/webjars/**").permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
