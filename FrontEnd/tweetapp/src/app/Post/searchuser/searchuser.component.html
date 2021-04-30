@@ -1,7 +1,7 @@
 <div class="search-bar">
     <div class="row">
       <div class="col-xl-11 mt-5 ml-5 mr-5">
-        <h3 class="text-dark"><b>FIND PEOPLE</b></h3>
+        <h3 class="text-light"><b>FIND PEOPLE</b></h3>
       </div>
       <div class="col-xl-11 mt-2 ml-5 mr-5">
         <form>
@@ -20,7 +20,6 @@
   <div>
     <div class="col-xl-11 mt-2 ml-5 mr-5" *ngFor="let user of filteredUsers">
     <mat-card class="example-card">
-        <!-- <mat-icon>more_vert</mat-icon> -->
             <div><b>User Name : </b>{{user.loginId}}</div>
         <mat-card-content><b>First Name : </b>{{user.firstName}}<br>
             <b>Last Name : </b>{{user.lastName}}<br>
@@ -30,5 +29,6 @@
     </mat-card> 
 </div>
 </div>
+
 
     

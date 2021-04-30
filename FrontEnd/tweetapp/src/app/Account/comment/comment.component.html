@@ -1,7 +1,5 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>ADD COMMENT</mat-card-title>
-    </mat-card-header>
+  <p class="align-right"><b>ADD COMMENT</b>
     <mat-card-content>
 
         <div class = "ml-20 mr-5"> <mat-card-actions>
@@ -11,15 +9,18 @@
                     <input #comment matInput type="text" name="comment" placeholder="Enter a comment">
                   </mat-form-field>
                   &nbsp; &nbsp;
-                  <button class="my-class" mat-raised-button color="primary" type="button" (click)="post(comment.value)">POST
+                  <button class="my-class" mat-raised-button style="background-color:  rgb(101, 220, 250); color:black" type="button" 
+                  (click)="post(comment.value)"><b>POST</b>
                 </button>
-            </form>
-            
-      
-            <button class= mat-button style=
-                "background-color:rgb(159, 22, 172); color:white" (click) = "cancel()">
-                CANCEL
+                <button class= mat-button style=
+                "background-color: rgb(243, 93, 93); color:black" (click) = "cancel()">
+                <b>CANCEL</b>
             </button>
+            
+            </form>
+             
+      
+           
           
         </mat-card-actions></div>
 

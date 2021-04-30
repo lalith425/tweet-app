@@ -22,6 +22,7 @@ import { PostComponent } from './Post/post/post.component';
 import { MytweetComponent } from './Post/mytweet/mytweet.component';
 import { UpdatetweetComponent } from './Post/updatetweet/updatetweet.component';
 import { SearchuserComponent } from './Post/searchuser/searchuser.component';
+import { HomeComponent } from './Account/home/home.component';
 
 const appRoutes: Routes = [ 
   { path: 'user-menu', component: UserMenuComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
   { path: 'user-menu', component: UserMenuComponent},
   { path: 'password-reset', component: PasswordComponent},
   { path: 'post-tweet', component: PostComponent},
-  { path: 'search-user', component: SearchuserComponent}
+  { path: 'search-user', component: SearchuserComponent},
+  { path: 'home',component: HomeComponent}
   
 ];
 
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     PostComponent,
     MytweetComponent,
     UpdatetweetComponent,
-    SearchuserComponent
+    SearchuserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

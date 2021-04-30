@@ -21,3 +21,8 @@ p {
     width:48px !important;
     font-size:48px !important;
 }
+
+.align-right{
+  text-align: left;
+  font-size: medium;
+}

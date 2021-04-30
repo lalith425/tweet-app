@@ -1,17 +1,17 @@
 <div class="search-bar">
     <div class="row">
       <div class="col-xl-11 mt-5 ml-5 mr-5">
-        <h3 class="text-dark"><b>FIND PEOPLE</b></h3>
+        <h3 class="text-light"><b>FIND USERS BY TWEETS</b></h3>
       </div>
       <div class="col-xl-11 mt-2 ml-5 mr-5">
         <form>
           <div class="input-group md-form form-sm form-1 pl-0">
             <div class="input-group-prepend">
               <span class="input-group-text purple lighten-3 mb-5" id="basic-text1"><i
-                  class="material-icons">group</i></span>
+                  class="material-icons">search</i></span>
             </div>
             <input type="search" class="form-control" name="search-bar" [(ngModel)]="nameSearch" (input)="search()"
-              placeholder="Search Users">
+              placeholder="Search Users By Tweets">
           </div>
         </form>
       </div>
@@ -21,33 +21,33 @@
     <div class="col-xl-11 mt-2 ml-5 mr-5" *ngFor="let tweet of filteredtweetList">
     <mat-card class="example-card">
         <mat-card-header>
-        <!-- <mat-icon>more_vert</mat-icon> -->
             <div mat-card-avatar class="example-header-image"></div>
             <div class ="mt-1 mb-2"><mat-card-title><b>{{tweet.userId}}</b>
-              <span class="example-spacer"></span>
+              <span class="tab"></span>
                 <button *ngIf = "tweet.userId == this.authService.getLoggedInUserId()" type="button" class="btn color icon-in-menu">
                   <i class="material-icons other_icon" (click) = "edittweet(tweet.tweetId)"> edit </i> 
+                </button>
+                <button *ngIf = "tweet.userId == this.authService.getLoggedInUserId()" type="button" class="btn color icon-in-menu">
+                  <i class="material-icons other_icon icon-color" (click) = "deletetweet(tweet.tweetId)"> delete </i> 
                 </button>
                 <div *ngIf="tweet.tweetId == checkTweetId && this.editIsClicked">
                   <app-updatetweet [tweetToUpdate]="tweet"></app-updatetweet>
                  </div>
-                <button *ngIf = "tweet.userId == this.authService.getLoggedInUserId()" type="button" class="btn color icon-in-menu">
-                  <i class="material-icons other_icon" (click) = "deletetweet(tweet.tweetId)"> delete </i> 
-                </button>
 
 
             </mat-card-title></div>
         </mat-card-header>
-        <mat-card-content>{{tweet.tweetPost}}</mat-card-content>
+        <mat-card-content><b>Tweet : </b>{{tweet.tweetPost}}</mat-card-content>
+        <mat-card-content><b>Updated At : </b>{{tweet.updatedDate}}</mat-card-content>
        <div class = "ml-20 mr-5"> <mat-card-actions>
             <button mat-button style=
-                "background-color:rgb(11, 165, 236); color:white" (click) = "like(tweet)">
-                LIKE
+                "background-color:rgb(101, 220, 250); color:black" (click) = "like(tweet)">
+                <b>LIKE</b>
             </button>
       
             <button mat-button style=
-                "background-color:rgb(159, 22, 172); color:white" (click) = "comment(tweet)">
-                COMMENT
+                "background-color: darkgrey; color:black" (click) = "comment(tweet)">
+                <b>COMMENT</b>
             </button>
             <div *ngIf="tweet.tweetId == checkTweetId && this.commentIsClicked">
              <app-comment [tweet]="tweet"></app-comment>

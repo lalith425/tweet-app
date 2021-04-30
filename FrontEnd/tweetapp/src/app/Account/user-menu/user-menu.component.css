@@ -8,10 +8,22 @@ p {
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('https://i.pinimg.com/236x/38/aa/95/38aa95f88d5f0fc3fc0f691abfaeaf0c.jpg');
     background-size: cover;
   }
 
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  .icon-color{
+    color :red;
+  }
+
+  .tab {
+    padding-left: 30px;
+  }
+
+  .search-bar{
+    background-image: url("https://i.pinimg.com/originals/df/6f/64/df6f649639e6b5fdbcdb7915d16faaf6.jpg");
   }

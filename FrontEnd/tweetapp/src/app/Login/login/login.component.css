@@ -6,3 +6,16 @@
     background-size: cover;
     position: relative;
 }
+
+.signup-btn {
+	background-color:  rgb(24, 137, 172);
+	color: white;
+}
+
+.forget-password{
+    color: red;
+}
+
+.tab {
+    padding-left: 30px;
+  }
