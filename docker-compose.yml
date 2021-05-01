@@ -9,15 +9,6 @@ services:
         - baseUrl=http://springboot:9091  
       networks: 
         - tweetapp
-    # docker-ngnix:
-    #   container_name: docker-ngnix
-    #   build: ./
-    #   ports:
-    #     - 80:80
-    #   command: ["nginx", "-g","deamon off;"]
-    #   depends_on: 
-    #     - angular   
-
     springboot:
         build: ./Backend/tweetapp
         container_name: spring
@@ -28,8 +19,7 @@ services:
           - MONGOPORT=27017
           - MONGODB=tweetapp
           - KAFKAHOST=kafka
-          - KAFKAPORT=9092
-            
+          - KAFKAPORT=9092    
         networks: 
           - tweetapp
         depends_on: 
@@ -38,8 +28,10 @@ services:
     mongo:
         image: 'mongo:latest'
         container_name: mongodb
-        ports:
-          - '27017:27017'
+        ports: 
+          - '27018:27017'
+        volumes:
+          - mongodb:/data/db  
         networks: 
           - tweetapp          
     zookeeper:
@@ -62,6 +54,8 @@ services:
           - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
           - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
           - ALLOW_PLAINTEXT_LISTENER=yes
+        volumes:
+          - elk:/usr/share/kafka/data  
         networks: 
           - tweetapp  
         depends_on: 
@@ -73,6 +67,8 @@ services:
           - discovery.type=single-node
         ports:
           - 9200:9200
+        volumes:
+          - elk:/usr/share/elasticsearch/data
         networks: 
           - tweetapp 
     logstash:
@@ -87,6 +83,8 @@ services:
           - KAFKAHOST=kafka
           - KAFKAPORT=9092
           - PATH_CONFIG=/usr/share/logstash/pipeline/logstash.conf
+        volumes:
+          - elk:/usr/share/logstash/data  
         networks: 
           - tweetapp
         depends_on: 
@@ -98,6 +96,8 @@ services:
           - 5601:5601
         environment: 
           - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+        volumes:
+          - elk:/usr/share/kibana/data  
         networks: 
           - tweetapp
         depends_on: 
@@ -105,3 +105,6 @@ services:
 
 networks: 
    tweetapp: {}
+volumes:
+  mongodb:
+  elk:  
