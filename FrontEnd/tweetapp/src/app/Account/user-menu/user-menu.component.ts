@@ -47,6 +47,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   like(tweet){
+    console.log(tweet)
     this.tweetService.likeTweet(tweet).subscribe((data)=>{
       alert("Liked Suucessfully");
     });

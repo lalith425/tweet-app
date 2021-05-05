@@ -37,9 +37,10 @@ export class UserServiceService {
 
   forgetPassword(user) {
     this.updatePassword(user.username, user.password).subscribe((data)=>{
+      console.log(data)
+      if(data==true)
       alert("Password Updated");
-    },
-    (error)=>{
+      else
       alert("Invalid UserName");
     })
     

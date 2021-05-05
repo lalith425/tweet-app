@@ -17,11 +17,12 @@ export class SearchuserComponent implements OnInit {
     this.userService.getAllUsers().subscribe((data) => {
       this.list = data;
       this.filteredUsers=data;
+      console.log(data);
   });
-
   }
   search() {
-    this.filteredUsers = this.list.filter(item => item.loginId.toLocaleLowerCase().includes(this.nameSearch.toLocaleLowerCase()));
+    this.filteredUsers = this.list.filter(item => item.loginId.toLocaleLowerCase().includes
+    (this.nameSearch.toLocaleLowerCase()));
  
   }
 }

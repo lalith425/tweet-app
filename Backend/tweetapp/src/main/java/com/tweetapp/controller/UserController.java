@@ -74,16 +74,16 @@ public class UserController {
     }
 
     @PutMapping("/user/forgetpassword")
-    public ResponseEntity<?> getUserById(@RequestBody AuthenticateRequest aReq) throws Exception {
+    public Boolean getUserById(@RequestBody AuthenticateRequest aReq) throws Exception {
         try {
             log.info("changing password");
             userService.forgetPassword(aReq);
         } catch (UsernameNotFoundException e) {
-            throw e;
+            return false;
 
         }
 
-        return ResponseEntity.ok("PASSWORD UPDATED SUCCESSFULLY");
+        return true;
     }
 
 }
